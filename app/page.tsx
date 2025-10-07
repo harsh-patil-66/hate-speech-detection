@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-<<<<<<< HEAD
 import { Upload, MessageSquare, AlertCircle, CheckCircle2, AlertTriangle, ImageIcon } from "lucide-react"
 import { SingleTweetAnalysis } from "@/components/single-tweet-analysis"
 import { BulkAnalysis } from "@/components/bulk-analysis"
@@ -12,14 +11,6 @@ import { MemeAnalysis } from "@/components/meme-analysis"
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"single" | "bulk" | "meme">("single")
-=======
-import { Upload, MessageSquare, AlertCircle, CheckCircle2, AlertTriangle } from "lucide-react"
-import { SingleTweetAnalysis } from "@/components/single-tweet-analysis"
-import { BulkAnalysis } from "@/components/bulk-analysis"
-
-export default function Home() {
-  const [activeTab, setActiveTab] = useState<"single" | "bulk">("single")
->>>>>>> 56657ae3aaeaa0bb1fa2b28e718c93a18729a156
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,7 +54,6 @@ export default function Home() {
             <Upload className="h-4 w-4" />
             Bulk CSV Processing
           </Button>
-<<<<<<< HEAD
           <Button
             variant={activeTab === "meme" ? "default" : "ghost"}
             onClick={() => setActiveTab("meme")}
@@ -76,12 +66,6 @@ export default function Home() {
 
         {/* Content */}
         {activeTab === "single" ? <SingleTweetAnalysis /> : activeTab === "bulk" ? <BulkAnalysis /> : <MemeAnalysis />}
-=======
-        </div>
-
-        {/* Content */}
-        {activeTab === "single" ? <SingleTweetAnalysis /> : <BulkAnalysis />}
->>>>>>> 56657ae3aaeaa0bb1fa2b28e718c93a18729a156
 
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-4 mt-8">
