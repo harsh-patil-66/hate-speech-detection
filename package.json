@@ -38,7 +38,10 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "1.3.1",
+<<<<<<< HEAD
     "ai": "latest",
+=======
+>>>>>>> 56657ae3aaeaa0bb1fa2b28e718c93a18729a156
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

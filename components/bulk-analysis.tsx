@@ -55,6 +55,7 @@ export function BulkAnalysis() {
       setProgress(100)
 
       if (!response.ok) {
+<<<<<<< HEAD
         const errorData = await response.json()
         throw new Error(errorData.error || "Failed to process CSV")
       }
@@ -71,6 +72,40 @@ export function BulkAnalysis() {
       setError(
         err instanceof Error ? err.message : "Failed to process CSV. Please check the file format and try again.",
       )
+=======
+        throw new Error("Failed to process CSV")
+      }
+
+      const csvData = await response.text()
+      setResultData(csvData)
+
+      const lines = csvData.split("\n").filter((line) => line.trim())
+      const total = lines.length - 1 // Exclude header
+
+      let hateSpeech = 0
+      let offensive = 0
+      let neither = 0
+
+      // Count each category from the CSV results
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].toLowerCase()
+        if (line.includes("hate speech")) hateSpeech++
+        else if (line.includes("offensive")) offensive++
+        else if (line.includes("neither")) neither++
+      }
+
+      setStats({
+        total,
+        hateSpeech,
+        offensive,
+        neither,
+      })
+
+      setCompleted(true)
+    } catch (err) {
+      console.error("[v0] Error processing CSV:", err)
+      setError("Failed to process CSV. Please check if the backend API is running and the file format is correct.")
+>>>>>>> 56657ae3aaeaa0bb1fa2b28e718c93a18729a156
     } finally {
       setProcessing(false)
     }
